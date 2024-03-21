@@ -3,6 +3,7 @@
 import pandas as pd
 from collections import Counter
 from utils import download_pdf
+from tqdm import tqdm
 
 # %%
 """
@@ -27,13 +28,13 @@ zip_index_list = [i[:4] for i in file_name_list]
 
 counts = Counter(zip_index_list)
 sorted_counts = counts.most_common()
-download_zip_order = [i[0] for i in sorted_counts]
+download_zip_order = [i[0] for i in sorted_counts if i[1] > 0]
 download_zip_order
 
 # %%
 
 
 # %%
-for target_zip_id in download_zip_order:
+for target_zip_id in tqdm(download_zip_order):
     print("start ", target_zip_id)
     download_pdf(target_zip_id, file_name_list)

@@ -53,10 +53,11 @@ def remove_irrelevant_pdf(target_zip_id, file_name_list):
 
 def download_pdf(target_zip_id, file_name_list):
     target_dir = f"data/{target_zip_id}"
-    if os.path.exists(target_dir):
+
+    make_dir(target_dir)
+    if len(glob.glob(f"{target_dir}/*.pdf")) > 0:
         print("already finished")
         return
-    make_dir(target_dir)
     target_url = get_url(target_zip_id)
     download_and_extract_zip(target_url, target_dir)
     remove_irrelevant_pdf(target_zip_id, file_name_list)
