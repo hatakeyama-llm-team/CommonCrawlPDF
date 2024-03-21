@@ -15,9 +15,12 @@ def get_url(target_zip_id):
     target_num = int(target_zip_id)
     start_range = (target_num // 1000) * 1000
     end_range = start_range + 999
+    start_range = "{:04d}".format(start_range)
+    end_range = "{:04d}".format(end_range)
 
     # 範囲を文字列で表現
     output_range = f"{start_range}-{end_range}"
+    print(target_num, output_range)
 
     url = f"{base_url}/{output_range}/{target_zip_id}.zip"
 
