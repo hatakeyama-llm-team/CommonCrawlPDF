@@ -6,6 +6,7 @@
  - 2. zipを展開し､.jpドメイン以外のpdfを削除
  - 3. 1.に戻る
 ~~~
+mkdir data
 python download.py
 ~~~
 
