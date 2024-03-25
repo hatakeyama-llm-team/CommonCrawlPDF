@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 data/*
+dev/*
+output.jsonl
